@@ -1,0 +1,15 @@
+with open("input.txt", "r") as f:
+    contents = f.readlines()
+
+elf_sums = []
+current_sum = 0
+for x in contents:
+    if x != '\n':
+        current_sum = current_sum + int(x)
+    else:
+        elf_sums.append(current_sum)
+        current_sum = 0
+
+elf_sums.sort(reverse=True)
+max_sum = elf_sums[0]
+print('The elf carrying the most calories is carrying', max_sum, 'calories!')
