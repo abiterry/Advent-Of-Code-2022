@@ -1,0 +1,17 @@
+with open("input.txt", "r") as f:
+    contents = f.readlines()
+
+total_score = 0
+for x in contents:
+    x.replace('\n', '')
+    split = int((len(x) + 1)/2 - 1)
+    comp1 = x[0:split]
+    comp2 = x[split: (len(x) - 1)]
+    common = list(set(comp1) & set(comp2))
+    for i in common:
+        if i.islower():
+            score = ord(i) - 96
+        else:
+            score = ord(i) - 38
+    total_score = total_score + score
+print(total_score)
